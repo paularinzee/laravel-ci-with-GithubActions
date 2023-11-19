@@ -46,9 +46,6 @@ jobs:
  
   #     - name: Run tests
   #       run: php artisan test
-  on: push
-name: CI
-jobs:
   phpunit:
     runs-on: ubuntu-latest
     container:
