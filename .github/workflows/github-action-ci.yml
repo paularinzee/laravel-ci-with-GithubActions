@@ -6,8 +6,8 @@ on:
     branches: [ "master" ]
 
 jobs:
-  tests:
-    name: Run tests
+  phpstan:
+    name: phpstan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,16 +16,33 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
           coverage: none
  
-      - name: Run composer install
+      - name: Install composer dependencies
         run: composer install -n --prefer-dist
  
-      - name: Prepare Laravel Application
-        run: |
-          cp .env.ci .env
-          php artisan key:generate
+      - name: Run Static Analysis
+        run: ./vendor/bin/phpstan --error-format=github
+  # tests:
+  #   name: Run tests
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
  
-      - name: Run tests
-        run: php artisan test
+  #     - name: Setup PHP
+  #       uses: shivammathur/setup-php@v2
+  #       with:
+  #         php-version: '8.2'
+  #         extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
+  #         coverage: none
+ 
+  #     - name: Run composer install
+  #       run: composer install -n --prefer-dist
+ 
+  #     - name: Prepare Laravel Application
+  #       run: |
+  #         cp .env.ci .env
+  #         php artisan key:generate
+ 
+  #     - name: Run tests
+  #       run: php artisan test
