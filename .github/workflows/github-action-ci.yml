@@ -49,7 +49,7 @@ jobs:
   phpunit:
     runs-on: ubuntu-latest
     container:
-      image: kirschbaumdevelopment/laravel-test-runner:7.3
+      image: kirschbaumdevelopment/laravel-test-runner:8.2
  
     services:
       mysql:
