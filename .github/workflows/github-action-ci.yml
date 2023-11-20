@@ -47,6 +47,7 @@ jobs:
   #     - name: Run tests
   #       run: php artisan test
   tests:
+    name: Run test
     runs-on: ubuntu-latest
 
     # services:
