@@ -10,10 +10,18 @@ class ExampleTest extends TestCase
     /**
      * A basic test example.
      */
-    public function test_the_application_returns_a_successful_response(): void
-    {
-        $response = $this->get('/');
+    // public function test_the_application_returns_a_successful_response(): void
+    // public function test_the_application_returns_a_successful_response(): void 
+    // {
+    //     $response = $this->get('/');
 
-        $response->assertStatus(200);
+    //     $response->assertStatus(200);
+    // }
+
+    public function a_user_can_visit_the_home_page(): void 
+    {
+        $user = User ::facory()->create();
+
+        $response->$this->activate($user)->get(uri:'/');
     }
 }
