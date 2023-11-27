@@ -7,7 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 trait CreatesApplication
 {
-    use LazilyRefreshDatabase;
+    use LazilyRefreshDatabase; 
     /**
      * Creates the application.
      */
