@@ -91,4 +91,4 @@ jobs:
     - name: Run Test suite
       run: php artisan test 
     env:
-    DB_DATABASE: test
+      DB_DATABASE: test
